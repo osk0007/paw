@@ -13,14 +13,29 @@
 	
 </head>
 <body>
+<form>
+<input name="slovo"/>
+<input name="pocet"/>
+<input type="submit"/>
+ <input type="radio" name="seznam" value="cislovane"> Číslované
+ <input type="radio" name="seznam" value="odstavce"> Odstavce<br>
+</form>
 <?php
-	print "</p><b2><left>žůžo</left></b2></p>";
-	print "<ul>";
-	for ($i = 0; $i<10; $i++)  { 
-		print  "<li><b>hhhh".$i."</b></li>" ;
-	}
+	print $_REQUEST["pocet"];
 	
-	print "<b1><i>mám hlad</i>  - Jirka</b1>";
+	if ($_REQUEST["seznam"]==cislovane) {
+	for ($i = 1; $i<=$_REQUEST["pocet"]; $i++)  { 
+	print "<ol>";
+		print  "<li>řádek ".$i." ".$_REQUEST["slovo"]."</li>" ;
+		print "</ol>";
+	}
+	}
+	else{for ($i = 1; $i<=$_REQUEST["pocet"]; $i++)  { 
+	print "<ul>";
+		print  "<li>řádek ".$i." ".$_REQUEST["slovo"]."</li>" ;
+		print "</ul>";
+	}}
+
 	?>
 
 </body>
